@@ -16,6 +16,7 @@ namespace BTdemo1
     {
         BluetoothRadio btr;
         BluetoothDeviceCollection btdc;
+        BluetoothStream btstream;
 
         public Form1()
         {
@@ -25,7 +26,7 @@ namespace BTdemo1
             btr.BluetoothRadioMode = BluetoothRadioMode.On;
             listPairedDevices();
 
-            BluetoothAddress btAddr = new BluetoothAddress("0000000006660309");
+            BluetoothAddress btAddr = new BluetoothAddress("00000006660309e8");
             ddump("btAddress: " + btAddr.ToString());
 
             BluetoothMessages btmsg = new BluetoothMessages();
@@ -49,7 +50,7 @@ namespace BTdemo1
             addLog(s);
         }
 
-        BluetoothStream btstream;
+
         void testConnect2(BluetoothDevice btdev)
         {
             try
@@ -233,6 +234,13 @@ namespace BTdemo1
             }
             else
                 ddump("not connected!");
+        }
+
+        private void mnuDirectPrint_Click(object sender, EventArgs e)
+        {
+            DirectForm dlg = new DirectForm();
+            dlg.ShowDialog();
+            dlg.Dispose();
         }
 
     }

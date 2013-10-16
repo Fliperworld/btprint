@@ -36,10 +36,19 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnAgain = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.radioIPL = new System.Windows.Forms.RadioButton();
             this.radioFP = new System.Windows.Forms.RadioButton();
+            this.radioIPL = new System.Windows.Forms.RadioButton();
+            this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this.menuItem2 = new System.Windows.Forms.MenuItem();
+            this.mnuExit = new System.Windows.Forms.MenuItem();
+            this.mnuDirectPrint = new System.Windows.Forms.MenuItem();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // mainMenu1
+            // 
+            this.mainMenu1.MenuItems.Add(this.menuItem1);
+            this.mainMenu1.MenuItems.Add(this.menuItem2);
             // 
             // listBox1
             // 
@@ -97,6 +106,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(231, 35);
             // 
+            // radioFP
+            // 
+            this.radioFP.Location = new System.Drawing.Point(104, 7);
+            this.radioFP.Name = "radioFP";
+            this.radioFP.Size = new System.Drawing.Size(90, 23);
+            this.radioFP.TabIndex = 0;
+            this.radioFP.Text = "FingerPrint";
+            // 
             // radioIPL
             // 
             this.radioIPL.Checked = true;
@@ -106,13 +123,24 @@
             this.radioIPL.TabIndex = 0;
             this.radioIPL.Text = "IPL";
             // 
-            // radioFP
+            // menuItem1
             // 
-            this.radioFP.Location = new System.Drawing.Point(104, 7);
-            this.radioFP.Name = "radioFP";
-            this.radioFP.Size = new System.Drawing.Size(90, 23);
-            this.radioFP.TabIndex = 0;
-            this.radioFP.Text = "FingerPrint";
+            this.menuItem1.MenuItems.Add(this.mnuExit);
+            this.menuItem1.Text = "File";
+            // 
+            // menuItem2
+            // 
+            this.menuItem2.MenuItems.Add(this.mnuDirectPrint);
+            this.menuItem2.Text = "Extra";
+            // 
+            // mnuExit
+            // 
+            this.mnuExit.Text = "Exit";
+            // 
+            // mnuDirectPrint
+            // 
+            this.mnuDirectPrint.Text = "Direct Print";
+            this.mnuDirectPrint.Click += new System.EventHandler(this.mnuDirectPrint_Click);
             // 
             // Form1
             // 
@@ -145,6 +173,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton radioFP;
         private System.Windows.Forms.RadioButton radioIPL;
+        private System.Windows.Forms.MenuItem menuItem1;
+        private System.Windows.Forms.MenuItem mnuExit;
+        private System.Windows.Forms.MenuItem menuItem2;
+        private System.Windows.Forms.MenuItem mnuDirectPrint;
     }
 }
 

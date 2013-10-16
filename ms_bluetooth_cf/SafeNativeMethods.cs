@@ -54,6 +54,9 @@ namespace Microsoft.WindowsMobile.SharedSource.Bluetooth
         public static extern int BthAuthenticate(byte[] pba);
 
         [DllImport(BTDRT_DLL)]
+        public static extern int BthPairRequest(byte[] btAddr, int pinLength, byte[] pin);
+
+        [DllImport(BTDRT_DLL)]
         public static extern int BthSetEncryption(byte[] btAddr, int encryptOn);
 
 

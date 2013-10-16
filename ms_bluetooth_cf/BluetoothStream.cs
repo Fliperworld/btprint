@@ -12,6 +12,8 @@ namespace Microsoft.WindowsMobile.SharedSource.Bluetooth
     {
 //        BluetoothDevice bluetoothdevice = null;
         Socket socket=null;
+        string _sPIN = String.Empty;
+        byte[] _btAddress;
         NetworkStream networkstream=null;
         Guid guid_spp = StandardServices.SerialPortServiceGuid;
 
@@ -40,8 +42,33 @@ namespace Microsoft.WindowsMobile.SharedSource.Bluetooth
             }
         }
 
-        public BluetoothStream(byte[] btAddress)
+        void setPIN(byte[] btAddress, string sPIN)
         {
+            //see registry
+            // [HKEY_LOCAL_MACHINE\Comm\Security\Bluetooth]
+            // "key0006660309e8"=.....
+            byte[] bPIN = encoder.GetBytes(sPIN);
+            int iRes = SafeNativeMethods.BthSetPIN(btAddress, bPIN.Length, bPIN);
+            if (iRes != 0)
+                throw new ArgumentException("Setting Pin '" + sPIN + "' failed");
+
+            iRes = SafeNativeMethods.BthPairRequest(btAddress, bPIN.Length, bPIN);
+            if (iRes != 0)
+                throw new ArgumentException("BthPairRequest failed with code " + iRes.ToString());
+            _sPIN = sPIN;
+        }
+        void revokePIN()
+        {
+            SafeNativeMethods.BthRevokePIN(_btAddress);
+        }
+        public BluetoothStream(byte[] btAddress):this(btAddress,string.Empty)
+        {
+        }
+        public BluetoothStream(byte[] btAddress, string sPin)//:this(btAddress)
+        {
+            _btAddress = btAddress;
+            if (sPin != String.Empty && sPin != "")
+                setPIN(btAddress, sPin);
             socket = new Socket((AddressFamily)32, SocketType.Stream, (ProtocolType)3);
             try
             {
@@ -108,6 +135,8 @@ namespace Microsoft.WindowsMobile.SharedSource.Bluetooth
                 thRecv.Abort();
                 thSend.Abort();
             }
+            if(_sPIN!=String.Empty)
+                this.revokePIN();
             utils.ddump("BluetoothStream disposed");
         }
 

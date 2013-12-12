@@ -30,6 +30,10 @@
         private void InitializeComponent()
         {
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
+            this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this.mnuExit = new System.Windows.Forms.MenuItem();
+            this.menuItem2 = new System.Windows.Forms.MenuItem();
+            this.mnuDirectPrint = new System.Windows.Forms.MenuItem();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnTest = new System.Windows.Forms.Button();
             this.txtLog = new System.Windows.Forms.TextBox();
@@ -38,10 +42,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioFP = new System.Windows.Forms.RadioButton();
             this.radioIPL = new System.Windows.Forms.RadioButton();
-            this.menuItem1 = new System.Windows.Forms.MenuItem();
-            this.menuItem2 = new System.Windows.Forms.MenuItem();
-            this.mnuExit = new System.Windows.Forms.MenuItem();
-            this.mnuDirectPrint = new System.Windows.Forms.MenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,16 +51,36 @@
             this.mainMenu1.MenuItems.Add(this.menuItem1);
             this.mainMenu1.MenuItems.Add(this.menuItem2);
             // 
+            // menuItem1
+            // 
+            this.menuItem1.MenuItems.Add(this.mnuExit);
+            this.menuItem1.Text = "File";
+            // 
+            // mnuExit
+            // 
+            this.mnuExit.Text = "Exit";
+            this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
+            // 
+            // menuItem2
+            // 
+            this.menuItem2.MenuItems.Add(this.mnuDirectPrint);
+            this.menuItem2.Text = "Extra";
+            // 
+            // mnuDirectPrint
+            // 
+            this.mnuDirectPrint.Text = "Direct Print";
+            this.mnuDirectPrint.Click += new System.EventHandler(this.mnuDirectPrint_Click);
+            // 
             // listBox1
             // 
-            this.listBox1.Location = new System.Drawing.Point(3, 3);
+            this.listBox1.Location = new System.Drawing.Point(3, 25);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(234, 58);
             this.listBox1.TabIndex = 0;
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(171, 109);
+            this.btnTest.Location = new System.Drawing.Point(171, 134);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(66, 19);
             this.btnTest.TabIndex = 1;
@@ -102,7 +123,7 @@
             this.panel1.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.panel1.Controls.Add(this.radioFP);
             this.panel1.Controls.Add(this.radioIPL);
-            this.panel1.Location = new System.Drawing.Point(6, 68);
+            this.panel1.Location = new System.Drawing.Point(6, 93);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(231, 35);
             // 
@@ -123,24 +144,12 @@
             this.radioIPL.TabIndex = 0;
             this.radioIPL.Text = "IPL";
             // 
-            // menuItem1
+            // label1
             // 
-            this.menuItem1.MenuItems.Add(this.mnuExit);
-            this.menuItem1.Text = "File";
-            // 
-            // menuItem2
-            // 
-            this.menuItem2.MenuItems.Add(this.mnuDirectPrint);
-            this.menuItem2.Text = "Extra";
-            // 
-            // mnuExit
-            // 
-            this.mnuExit.Text = "Exit";
-            // 
-            // mnuDirectPrint
-            // 
-            this.mnuDirectPrint.Text = "Direct Print";
-            this.mnuDirectPrint.Click += new System.EventHandler(this.mnuDirectPrint_Click);
+            this.label1.Location = new System.Drawing.Point(5, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 20);
+            this.label1.Text = "Known devices:";
             // 
             // Form1
             // 
@@ -148,6 +157,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 268);
+            this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtLog);
             this.Controls.Add(this.btnAgain);
@@ -157,7 +168,7 @@
             this.Menu = this.mainMenu1;
             this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Print to BT";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -177,6 +188,7 @@
         private System.Windows.Forms.MenuItem mnuExit;
         private System.Windows.Forms.MenuItem menuItem2;
         private System.Windows.Forms.MenuItem mnuDirectPrint;
+        private System.Windows.Forms.Label label1;
     }
 }
 

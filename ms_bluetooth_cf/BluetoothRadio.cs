@@ -124,15 +124,23 @@ namespace Microsoft.WindowsMobile.SharedSource.Bluetooth
 			get
 			{
 				BluetoothRadioMode currentMode = BluetoothRadioMode.Off;
-
 				SafeNativeMethods.BthGetMode(ref currentMode);
-
 				return currentMode;
 			}
 
 			set
 			{
-				SafeNativeMethods.BthSetMode(value);
+                if (utils.isIntermec())
+                {
+                    if (value == BluetoothRadioMode.On)
+                        ms_bluetooth_cf.IntermecBT.ibt_on();
+                    else if (value == BluetoothRadioMode.Off)
+                        ms_bluetooth_cf.IntermecBT.ibt_off();
+                    else if (value == BluetoothRadioMode.Discoverable)
+                        ms_bluetooth_cf.IntermecBT.set_bt_discoverable(true);
+                }
+                else
+                    SafeNativeMethods.BthSetMode(value);
 			}
 		}
 

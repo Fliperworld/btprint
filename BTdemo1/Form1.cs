@@ -238,9 +238,19 @@ namespace BTdemo1
 
         private void mnuDirectPrint_Click(object sender, EventArgs e)
         {
-            DirectForm dlg = new DirectForm();
-            dlg.ShowDialog();
-            dlg.Dispose();
+            //DirectForm dlg = new DirectForm();
+            //dlg.ShowDialog();
+            //dlg.Dispose();
+        }
+
+        private void mnuExit_Click(object sender, EventArgs e)
+        {
+            if (btstream != null)
+            {
+                btstream.recvThreadEvent -= btstream_recvThreadEvent;
+                btstream.Dispose();
+            }
+            Application.Exit();
         }
 
     }

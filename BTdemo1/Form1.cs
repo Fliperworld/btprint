@@ -73,6 +73,9 @@ namespace BTdemo1
                             btstream.write(Intermec.Printer.Language.Fingerprint.Demo.FP_2_WalmartLabel());
                         else if(radioIPL.Checked)
                             btstream.write(Intermec.Printer.Language.Fingerprint.Demo.IPL_2_WalmartLabel());
+                        else if (radioESCP.Checked)
+                            btstream.write(Intermec.Printer.Language.Fingerprint.Demo.ESCP_PRODLIST2);
+
                         button1.Text = "disconnect";
                     }
                     else

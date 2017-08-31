@@ -7,6 +7,46 @@ namespace Intermec.Printer.Language.Fingerprint
 {
     public class Demo
     {
+        public static string ESCP_PRODLIST2
+        {
+            get
+            {
+                string s = "";
+                s+="\x1B@\x1Bw!\x1Bw!\x1Bw!\x1Bw!LOCATION# 111111         ROUTE# 222222\n";
+                s+="\x1Bw!REP# 123456   06/26/08 08:52   PAGE  1\n";
+                s+="\x1Bw!\n";
+                s+="\x1Bw!\x1Bw&     ITEM LIST\n";
+                s+="\x1Bw&\x1Bw!\n";
+                s+="\x1Bw!     ITEM#  DESCRIPTION\n";
+                s+="\x1Bw!\n";
+                s+="\x1Bw!      1000  Koala Cola    4/12-6\n";
+                s+="\x1Bw!      1001  Dt Koala Cola 4/12-6\n";
+                s+="\x1Bw!      1100  Lemon Lime    4/12-6\n";
+                s+="\x1Bw!      1101  Orange Soda   4/12-6\n";
+                s+="\x1Bw!      1200  Root Beer     4/12-6\n";
+                s+="\x1Bw!      2000  Koala Cola   2/12-12\n";
+                s+="\x1Bw!      2001  Dt Koala Cola2/12-12\n";
+                s+="\x1Bw!      2100  Lemon Lime   2/12-12\n";
+                s+="\x1Bw!      2101  Orange Soda  2/12-12\n";
+                s+="\x1Bw!      2200  Root Beer    2/12-12\n";
+                s+="\x1Bw!      3000  Koala Cola    8/1-2L\n";
+                s+="\x1Bw!      3001  Dt Koala Cola 8/1-2L\n";
+                s+="\x1Bw!      3100  Lemon Lime    8/1-2L\n";
+                s+="\x1Bw!      3101  Orange Soda   8/1-2L\n";
+                s+="\x1Bw!      3200  Root Beer     8/1-2L\n";
+                s+="\x1Bw!\n";
+                s+="\x1Bw!\x1Bw&        MISC\x1Bw!\n";
+                s+="\x1Bw!\n";
+                s+="\x1Bw!      9000  Empty Cans  (240)\n";
+                s+="\x1Bw!      9001  Empty Can Single    \n";
+                s+="\x1Bw!      9002  Empty 2L     (80)   \n";
+                s+="\x1Bw!\n";
+                s += "\x1Bw!\n";
+                s += "\x1Bw!\n";
+                s += "\x1Bw!\n";
+                return s;
+            }
+        }
         public static string IPL_2_WalmartLabel()
         {
             //IPL

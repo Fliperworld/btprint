@@ -43,6 +43,7 @@
             this.radioFP = new System.Windows.Forms.RadioButton();
             this.radioIPL = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.radioESCP = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,6 +122,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.panel1.Controls.Add(this.radioESCP);
             this.panel1.Controls.Add(this.radioFP);
             this.panel1.Controls.Add(this.radioIPL);
             this.panel1.Location = new System.Drawing.Point(6, 93);
@@ -129,7 +131,7 @@
             // 
             // radioFP
             // 
-            this.radioFP.Location = new System.Drawing.Point(104, 7);
+            this.radioFP.Location = new System.Drawing.Point(65, 7);
             this.radioFP.Name = "radioFP";
             this.radioFP.Size = new System.Drawing.Size(90, 23);
             this.radioFP.TabIndex = 0;
@@ -140,7 +142,7 @@
             this.radioIPL.Checked = true;
             this.radioIPL.Location = new System.Drawing.Point(8, 7);
             this.radioIPL.Name = "radioIPL";
-            this.radioIPL.Size = new System.Drawing.Size(90, 23);
+            this.radioIPL.Size = new System.Drawing.Size(51, 23);
             this.radioIPL.TabIndex = 0;
             this.radioIPL.Text = "IPL";
             // 
@@ -150,6 +152,14 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 20);
             this.label1.Text = "Known devices:";
+            // 
+            // radioESCP
+            // 
+            this.radioESCP.Location = new System.Drawing.Point(161, 7);
+            this.radioESCP.Name = "radioESCP";
+            this.radioESCP.Size = new System.Drawing.Size(67, 21);
+            this.radioESCP.TabIndex = 1;
+            this.radioESCP.Text = "ESCP";
             // 
             // Form1
             // 
@@ -189,6 +199,7 @@
         private System.Windows.Forms.MenuItem menuItem2;
         private System.Windows.Forms.MenuItem mnuDirectPrint;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton radioESCP;
     }
 }
 
